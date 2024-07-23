@@ -17,16 +17,22 @@ export default function Header () {
 
 
     return (
-    <nav className="navbar row">
-        <div className="col-12 col-md-3">
-          <div className="navbar-brand">
-            <Link to="/">
-              <img width="150px" alt='JVLcart Logo' src="/images/logo.png" />
-            </Link>
+      <nav className="navbar row" style={{ backgroundColor: '#102C57', color: '#fff' }}>
+         <div className="col-12 col-md-3 d-flex justify-content-between align-items-center">
+         <div className="navbar-brand d-flex align-items-center">
+                    <Link to="/">
+                        <img width="150px" height="50px" alt='JVLcart Logo' src="/images/Group6.svg" />
+                    </Link>
+                    
+                </div>
+                <div className="ml-auto">
+                    <Link to="/boys" className="mx-2 text-white">Boys</Link>
+                    <Link to="/girls" className="mx-2 text-white">Girls</Link>
+                    <Link to="/infant" className="mx-2 text-white">infant</Link>
+                </div>
             </div>
-        </div>
   
-        <div className="col-12 col-md-6 mt-2 mt-md-0">
+        <div className="col-12 col-md-3 mt-2 mt-md-0">
            <Search/>
         </div>
   
@@ -57,4 +63,4 @@ export default function Header () {
         </div>
     </nav>
     )
-}
+} 
