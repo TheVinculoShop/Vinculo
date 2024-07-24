@@ -4,6 +4,12 @@
         display: none;
     }
 
+    .navbar{
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
     .mobile-navbar{
         display: flex;
         justify-content: space-evenly;
