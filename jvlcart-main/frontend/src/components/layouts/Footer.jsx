@@ -16,7 +16,8 @@ import { Link } from "react-router-dom";
 import {
   FaHome,
   FaUser,
-  FaShoppingBasket
+  FaShoppingBasket,
+  FaShoppingCart,
 } from "react-icons/fa";
 import { TbCategoryPlus } from "react-icons/tb";
 
@@ -124,8 +125,14 @@ const Footer = () => {
           </li>
 
           <li>
-            <Link to="/myprofile">
-              <FaUser style={{ color: "white" }} /> Profile
+            <Link to="/cart">
+              <TbCategoryPlus style={{ color: "white" }} /> Categories
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/orders">
+              <FaShoppingCart style={{ color: "white" }} /> Orders
             </Link>
           </li>
 
@@ -136,8 +143,8 @@ const Footer = () => {
           </li>
 
           <li>
-            <Link to="/cart">
-            <TbCategoryPlus style={{ color: "white" }} /> Categories
+            <Link to="/myprofile">
+              <FaUser style={{ color: "white" }} /> Profile
             </Link>
           </li>
         </ul>
