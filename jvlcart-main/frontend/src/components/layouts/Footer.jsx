@@ -124,11 +124,7 @@ const Footer = () => {
             </Link>
           </li>
 
-          <li>
-            <Link to="/cart">
-              <TbCategoryPlus style={{ color: "white" }} /> Categories
-            </Link>
-          </li>
+
 
           <li>
             <Link to="/orders">
