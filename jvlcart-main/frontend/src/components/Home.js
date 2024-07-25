@@ -4,47 +4,70 @@ import { getProducts } from "../actions/productActions";
 import Loader from "./layouts/Loader";
 import MetaData from "./layouts/MetaData";
 import Product from "./product/Product";
-import  {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import Pagination from 'react-js-pagination';
-
-export  default function Home(){
+import Carousel from 'react-bootstrap/Carousel';
+export default function Home() {
     const dispatch = useDispatch();
-    const {products, loading, error, productsCount, resPerPage} =    useSelector((state) => state.productsState)
+    const { products, loading, error, productsCount, resPerPage } = useSelector((state) => state.productsState)
     const [currentPage, setCurrentPage] = useState(1);
- 
-    const setCurrentPageNo = (pageNo) =>{
+
+    const setCurrentPageNo = (pageNo) => {
 
         setCurrentPage(pageNo)
-       
+
     }
 
-    useEffect(()=>{
-        if(error) {
-            return toast.error(error,{
+    useEffect(() => {
+        if (error) {
+            return toast.error(error, {
                 position: toast.POSITION.BOTTOM_CENTER
             })
         }
-        dispatch(getProducts(null, null, null, null, currentPage)) 
+        dispatch(getProducts(null, null, null, null, currentPage))
     }, [error, dispatch, currentPage])
 
 
     return (
         <Fragment>
-            {loading ? <Loader/>:
+            {loading ? <Loader /> :
                 <Fragment>
                     <MetaData title={'Buy Best Products'} />
+                    <Carousel className="custom-carousel">
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="images\caro1.jpg"
+                                alt="First slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="images\caro2.jpg"
+                                alt="Second slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="images\caro3.jpg"
+                                alt="Third slide"
+                            />
+                        </Carousel.Item>
+                    </Carousel>
                     <h1 id="products_heading">Latest Products</h1>
                     <section id="products" className="container mt-5">
                         <div className="row">
-                            { products && products.map(product => (
-                                <Product col={3} key={product._id}  product={product}/>
+                            {products && products.map(product => (
+                                <Product col={3} key={product._id} product={product} />
                             ))}
-                        
+
                         </div>
                     </section>
-                    {productsCount > 0 && productsCount > resPerPage?
-                    <div className="d-flex justify-content-center mt-5">
-                           <Pagination 
+                    {productsCount > 0 && productsCount > resPerPage ?
+                        <div className="d-flex justify-content-center mt-5">
+                            <Pagination
                                 activePage={currentPage}
                                 onChange={setCurrentPageNo}
                                 totalItemsCount={productsCount}
@@ -54,10 +77,10 @@ export  default function Home(){
                                 lastPageText={'Last'}
                                 itemClass={'page-item'}
                                 linkClass={'page-link'}
-                           />     
-                    </div> : null }
+                            />
+                        </div> : null}
                 </Fragment>
-           }
+            }
         </Fragment>
     )
 }
