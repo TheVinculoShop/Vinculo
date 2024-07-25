@@ -1,5 +1,17 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "nodemon": "^3.1.4"
   }
+=======
+  "name": "vinculo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+>>>>>>> 5473bccaef4e233eb902b34dd0ae38f882793529
 }
