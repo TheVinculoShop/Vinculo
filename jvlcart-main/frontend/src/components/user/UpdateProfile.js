@@ -69,12 +69,17 @@ export default function UpdateProfile() {
         }
     }, [user, isUpdated, error, dispatch]);
 
+    const rowwrapper = {
+        paddingTop: '30px', // Adjust based on header height
+        paddingBottom: '100px' // Adjust based on footer height
+    };
+
     return (
-        <div className="row wrapper">
+        <div style={rowwrapper} className="row wrapper">
             <div className="col-10 col-lg-5">
                 <form onSubmit={submitHandler} className="shadow-lg" encType="multipart/form-data">
                     <img 
-                        src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" // Replace with the path to your image or GIF
+                        src={avatarPreview} // Update src with avatarPreview state
                         alt="Visual Aid" 
                         style={{ width: '100px', height: 'auto', margin: 'auto', display: 'block' }} // Adjust width as needed
                     />
