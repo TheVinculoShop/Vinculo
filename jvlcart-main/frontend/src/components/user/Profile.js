@@ -20,7 +20,9 @@ export default function Profile() {
         avatarProfile: {
             position: 'relative',
             display: 'inline-block',
-            marginTop: '20px'
+            marginTop: '20px',
+            // width: '150px', // Default size for larger screens
+            // height: '150px' // Default size for larger screens
         },
         avatarImage: {
             border: '5px solid #fff',
