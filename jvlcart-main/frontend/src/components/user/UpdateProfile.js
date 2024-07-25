@@ -130,7 +130,7 @@ export default function UpdateProfile() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="avatar_upload">Avatar</label>
+                        <label htmlFor="avatar_upload">Profile</label>
                         <div className="d-flex align-items-center">
                             <div>
                                 <figure className="avatar mr-3 item-rtl">
