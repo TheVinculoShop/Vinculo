@@ -82,3 +82,34 @@ const styles = {
         WebkitOverflowScrolling: 'touch',
     },
 };
+
+// Add responsive styling using CSS
+const stylesCSS = `
+    @media (max-width: 768px) {
+        .table-responsive {
+            overflow-x: auto;
+        }
+        .table-responsive::-webkit-scrollbar {
+            display: none;
+        }
+        .btn-primary {
+            font-size: 0.8rem;
+            padding: 0.5rem 0.75rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .mdb-datatable thead th {
+            font-size: 0.875rem;
+        }
+        .mdb-datatable tbody td {
+            font-size: 0.875rem;
+        }
+    }
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = stylesCSS;
+document.head.appendChild(styleSheet);
