@@ -6,9 +6,12 @@ import MetaData from "./layouts/MetaData";
 import Product from "./product/Product";
 import { toast } from 'react-toastify';
 import Pagination from 'react-js-pagination';
+import Carousel from 'react-bootstrap/Carousel';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { products, loading, error, productsCount, resPerPage } = useSelector((state) => state.productsState)
     const [currentPage, setCurrentPage] = useState(1);
     const [category, setCategory] = useState('');
@@ -29,10 +32,34 @@ export default function Home() {
     const handleCategoryClick = (selectedCategory) => {
         setCategory(selectedCategory);
         setCurrentPage(1);
+        navigate('/BoysProductsPage');
     }
 
     return (
         <Fragment>
+                                <Carousel className="custom-carousel">
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="images\caro2.jpg"
+                                alt="First slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="images\caro2.jpg"
+                                alt="Second slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="images\caro3.jpg"
+                                alt="Third slide"
+                            />
+                        </Carousel.Item>
+                    </Carousel>
              {/* Categories */}
 <center>
     <div className="container mt-5">
@@ -71,13 +98,12 @@ export default function Home() {
         </div>
     </div>
 </center>
+
             {loading ? <Loader /> :
                 <Fragment>
                     <MetaData title={'Buy Best Products'} />
-                  <center><h1 id="products_heading">Latest Products</h1></center>  
-                    
 
-
+                   <center> <h1 id="products_heading">Latest Products</h1> </center>
                     <section id="products" className="container mt-5">
                         <div className="row">
                             {products && products.map(product => (
@@ -103,4 +129,4 @@ export default function Home() {
             }
         </Fragment>
     )
-}
+    }

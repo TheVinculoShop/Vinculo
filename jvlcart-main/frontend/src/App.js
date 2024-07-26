@@ -38,6 +38,8 @@ import UpdateOrder from './components/admin/UpdateOrder';
 import UserList from './components/admin/UserList';
 import UpdateUser from './components/admin/UpdateUser';
 import ReviewList from './components/admin/ReviewList';
+import BoysProductsPage from './components/user/boys.js';
+
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("")
@@ -69,6 +71,7 @@ function App() {
                       <Route path='/password/forgot' element={<ForgotPassword/> } />
                       <Route path='/password/reset/:token' element={<ResetPassword/> } />
                       <Route path='/cart' element={<Cart/> } />
+                      <Route path='/BoysProductsPage' element={<BoysProductsPage/> } />
                       <Route path='/shipping' element={<ProtectedRoute><Shipping/></ProtectedRoute> } />
                       <Route path='/order/confirm' element={<ProtectedRoute><ConfirmOrder/></ProtectedRoute> } />
                       <Route path='/order/success' element={<ProtectedRoute><OrderSuccess/></ProtectedRoute> } />
