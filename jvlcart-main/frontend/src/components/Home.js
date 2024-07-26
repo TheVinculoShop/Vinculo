@@ -37,7 +37,7 @@ export default function Home() {
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images\caro1.jpg"
+                                src="images\caro3.jpg"
                                 alt="First slide"
                             />
                         </Carousel.Item>
@@ -56,6 +56,44 @@ export default function Home() {
                             />
                         </Carousel.Item>
                     </Carousel>
+                    <center>
+                        <div className="container mt-5">
+                            <div className="row">
+                                <div className="col-12 mb-5">
+                                    <h1 id="products_heading">Categories</h1>
+
+                                    <div className="image-container">
+                                        <img
+                                            src="/images/girl.jpg"
+                                            alt="Girls Category"
+
+                                        />
+                                        <div class="label">Girls</div>
+                                    </div>
+
+                                    <div className="image-container">
+                                        <img
+                                            src="/images/boys.jpg"
+                                            alt="Boys Category"
+
+                                        />
+                                        <div class="label">Boys</div>
+
+                                    </div>
+
+                                    <div className="image-container">
+                                        <img
+                                            src="/images/infant.jpg"
+                                            alt="Infants Category"
+
+                                        />
+                                        <div class="label">Infant</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+
                     <h1 id="products_heading">Latest Products</h1>
                     <section id="products" className="container mt-5">
                         <div className="row">
