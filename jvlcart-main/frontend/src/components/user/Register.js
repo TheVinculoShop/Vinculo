@@ -106,20 +106,12 @@ export default function Register() {
                                 marginBottom: '0'
                             }
                         }}>Sign Up</h1>
-<<<<<<< HEAD
-                        {/* <img src="/images/logopic.png" alt="Logo" style={{ 
-=======
                         <img src="/images/logopic.png" alt="Logo" style={{ 
->>>>>>> 51447a0f43814b48239a2e5e39470700b614ccf9
                             width: '30px',
                             '@media (max-width: 767px)': { // Adjust size for mobile
                                 width: '25px'
                             }
-<<<<<<< HEAD
-                        }} /> */}
-=======
                         }} />
->>>>>>> 51447a0f43814b48239a2e5e39470700b614ccf9
                     </div>
 
                     <div className="form-group">
