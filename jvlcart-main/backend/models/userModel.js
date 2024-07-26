@@ -24,6 +24,21 @@ const userSchema = new mongoose.Schema({
     avatar: {
         type: String
     },
+    phone: {
+        type: Number, // Change type to String to perform regex validation
+        required: [true, "Please enter mobile number"],
+        validate: {
+            validator: function (v) {
+                return /^\d{10}$/.test(v); // Regex for exactly 10 digits
+            },
+            message: props => `${props.value} is not a valid 10-digit phone number!`
+        }
+    
+    },
+    address: {
+        type: String,
+        trim: true
+    },
     role :{
         type: String,
         default: 'user'
