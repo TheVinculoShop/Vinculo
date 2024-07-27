@@ -1,21 +1,28 @@
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FaUserEdit, FaShoppingCart, FaKey, FaPhone, FaAddressCard, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaUserEdit, FaShoppingCart, FaKey, FaPhone, FaAddressCard, FaSignOutAlt } from 'react-icons/fa';
+import { logout } from "../../actions/userActions";
+import './profile.css'; // Ensure this import is correct
 
 export default function Profile() {
     const { user } = useSelector(state => state.authState);
+    const dispatch = useDispatch();
 
     const styles = {
         profileContainer: {
             backgroundColor: '#f7f7f7',
             padding: '30px',
             borderRadius: '10px',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            paddingTop: '30px', // Adjust based on header height
+            paddingBottom: '100px' // Adjust based on footer height
         },
         avatarProfile: {
             position: 'relative',
             display: 'inline-block',
-            marginTop: '20px'
+            marginTop: '20px',
+            // width: '150px', // Default size for larger screens
+            // height: '150px' // Default size for larger screens
         },
         avatarImage: {
             border: '5px solid #fff',
@@ -60,6 +67,10 @@ export default function Profile() {
         }
     };
 
+    const handleLogout = () => {
+       dispatch(logout);
+    };
+
     return (
         <div style={styles.profileContainer}>
             <div className="row justify-content-around mt-5 user-info">
@@ -91,27 +102,28 @@ export default function Profile() {
                         <h4 style={styles.header}>Address</h4>
                         <p style={styles.paragraph}><FaAddressCard style={styles.icon} /> {user.address}</p>
 
-                        
-
-                        
-
                         <h4 style={styles.header}>Joined</h4>
                         <p style={styles.paragraph}>{String(user.createdAt).substring(0, 10)}</p>
-
-                      
 
                         <Link to="/orders" style={{ ...styles.button, ...styles.btnDanger }} className="btn-block mt-5">
                             <FaShoppingCart style={styles.icon} /> My Orders
                         </Link>
 
-                        <Link to="/myprofile/update/password"
-                         style={{ ...styles.button, ...styles.btnPrimary }}
-                         className="btn-block mt-3">
+                        <Link to="/myprofile/update/password" style={{ ...styles.button, ...styles.btnPrimary }} className="btn-block mt-3">
                             <FaKey style={styles.icon} /> Change Password
                         </Link>
+                        
+                        <button
+                            className="btn-logout btn-block mt-5"
+                            onClick={handleLogout}
+                        >
+                            <FaSignOutAlt style={styles.icon} /> Logout
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     );
 }
+
+
