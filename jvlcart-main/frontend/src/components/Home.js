@@ -7,15 +7,14 @@ import Product from "./product/Product";
 import { toast } from 'react-toastify';
 import Pagination from 'react-js-pagination';
 import Carousel from 'react-bootstrap/Carousel';
+
 export default function Home() {
     const dispatch = useDispatch();
     const { products, loading, error, productsCount, resPerPage } = useSelector((state) => state.productsState)
     const [currentPage, setCurrentPage] = useState(1);
 
     const setCurrentPageNo = (pageNo) => {
-
         setCurrentPage(pageNo)
-
     }
 
     useEffect(() => {
@@ -27,7 +26,6 @@ export default function Home() {
         dispatch(getProducts(null, null, null, null, currentPage))
     }, [error, dispatch, currentPage])
 
-
     return (
         <Fragment>
             {loading ? <Loader /> :
@@ -37,21 +35,21 @@ export default function Home() {
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images\caro3.jpg"
+                                src="images/caro3.jpg"
                                 alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images\caro2.jpg"
+                                src="images/caro2.jpg"
                                 alt="Second slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images\caro3.jpg"
+                                src="images/caro3.jpg"
                                 alt="Third slide"
                             />
                         </Carousel.Item>
@@ -66,33 +64,31 @@ export default function Home() {
                                         <img
                                             src="/images/girl.jpg"
                                             alt="Girls Category"
-
                                         />
-                                        <div class="label">Girls</div>
+                                        <div className="label">Girls</div>
                                     </div>
 
                                     <div className="image-container">
                                         <img
                                             src="/images/boys.jpg"
                                             alt="Boys Category"
-
                                         />
-                                        <div class="label">Boys</div>
-
+                                        <div className="label">Boys</div>
                                     </div>
 
                                     <div className="image-container">
                                         <img
                                             src="/images/infant.jpg"
                                             alt="Infants Category"
-
                                         />
-                                        <div class="label">Infant</div>
+                                        <div className="label">Infant</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </center>
+
+
 
                     <h1 id="products_heading">Latest Products</h1>
                     <section id="products" className="container mt-5">
@@ -100,7 +96,6 @@ export default function Home() {
                             {products && products.map(product => (
                                 <Product col={3} key={product._id} product={product} />
                             ))}
-
                         </div>
                     </section>
                     {productsCount > 0 && productsCount > resPerPage ?

@@ -720,3 +720,56 @@ ul.CTAs a {
     font-family: 'Cinzel', sans-serif;
   }
 }
+
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  display: none;
+}
+
+.custom-carousel {
+  position: relative;
+  margin-top: 80px;
+}
+
+
+@media (max-width: 576px) {
+  .col-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card-img-top {
+    height: 120px;
+    /* Further reduced image height */
+    width: 100%;
+    /* Ensure image takes full width of the card */
+    object-fit: cover;
+    /* Keeps aspect ratio and covers the container */
+  }
+
+  .card-title {
+    font-size: 0.875rem;
+    /* Further reduced title font size */
+  }
+
+  .card-text {
+    font-size: 0.75rem;
+    /* Further reduced price font size */
+  }
+
+  .ratings {
+    font-size: 0.75rem;
+    /* Reduced ratings font size */
+  }
+
+  .btn {
+    padding: 0.25rem 0.5rem;
+    /* Reduced button padding */
+    font-size: 0.75rem;
+    /* Further reduced button font size */
+  }
+}
