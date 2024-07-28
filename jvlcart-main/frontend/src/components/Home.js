@@ -7,6 +7,7 @@ import Product from "./product/Product";
 import { toast } from 'react-toastify';
 import Pagination from 'react-js-pagination';
 import Carousel from 'react-bootstrap/Carousel';
+import Header from './layouts/Header'; // Assuming you have a Header component
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export default function Home() {
 
     return (
         <Fragment>
+
             {loading ? <Loader /> :
                 <Fragment>
                     <MetaData title={'Buy Best Products'} />

@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const path = require('path')
 const dotenv = require('dotenv');
 dotenv.config({path:path.join(__dirname,"config/config.env")});
+// const Product = require('./products'); 
 
 
 app.use(express.json());
@@ -26,6 +27,15 @@ if(process.env.NODE_ENV === "production") {
     app.get('*', (req, res) =>{
         res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
     })
+
+    app.get('/api/products/boys', async (req, res) => {
+        try {
+          const boysProducts = await Product.find({ category: 'boys' });
+          res.json(boysProducts);
+        } catch (err) {
+          res.status(500).json({ message: err.message });
+        }
+      });
 }
 
 app.use(errorMiddleware)

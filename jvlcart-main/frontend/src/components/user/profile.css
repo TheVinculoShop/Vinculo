@@ -16,4 +16,8 @@
         border: none;
         border-radius: 5px;
     }
+    .rounded-circle.img-fluid {
+        width: 150px; /* Adjust the size as needed */
+        height: 150px; /* Adjust the size as needed */
+    }
 }

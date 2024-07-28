@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Carousel } from 'react-bootstrap';
 
 export default function Product({ product }) {
     const calculateRatingsWidth = (ratings) => {
