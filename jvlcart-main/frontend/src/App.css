@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 html,
 
 body {
-  font-family: 'amzon', sans-serif;
+  font-family: 'Poppins', sans-serif;
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -71,7 +71,7 @@ nav {
 /* Home page */
 #products_heading {
   margin-top: 1.8rem;
-  font-family: 'amazon', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .card {
@@ -108,7 +108,7 @@ nav {
 }
 
 .card-img-top {
-  width: 200px;
+  width: 150px;
   height: 150px;
 }
 
@@ -279,6 +279,7 @@ footer {
 
 #product_image {
   margin-top: 9rem;
+
 }
 
 /* Loader */
