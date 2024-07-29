@@ -20,8 +20,8 @@ export  default function NewProduct () {
 
     const categories = [
         'Boys',
-        'Mobile Phones',
-        'Laptops',
+        'Girls',
+        'Infants',
         'Accessories',
         'Headphones',
         'Food',
