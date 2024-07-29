@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import Pagination from 'react-js-pagination';
 import Carousel from 'react-bootstrap/Carousel';
 import Header from './layouts/Header'; // Assuming you have a Header component
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -67,7 +68,9 @@ export default function Home() {
                                             src="/images/girl.jpg"
                                             alt="Girls Category"
                                         />
-                                        <div className="label">Girls</div>
+                                        <Link to="/girls">
+                                            <div className="label" >Girls</div>
+                                        </Link>
                                     </div>
 
                                     <div className="image-container">
@@ -75,7 +78,9 @@ export default function Home() {
                                             src="/images/boys.jpg"
                                             alt="Boys Category"
                                         />
-                                        <div className="label">Boys</div>
+                                        <Link to="/boys">
+                                            <div className="label">Boys</div>
+                                        </Link>
                                     </div>
 
                                     <div className="image-container">
@@ -83,7 +88,9 @@ export default function Home() {
                                             src="/images/infant.jpg"
                                             alt="Infants Category"
                                         />
+                                        <Link to="/infant">
                                         <div className="label">Infant</div>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

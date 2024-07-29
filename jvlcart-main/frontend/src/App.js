@@ -38,6 +38,11 @@ import UpdateOrder from './components/admin/UpdateOrder';
 import UserList from './components/admin/UserList';
 import UpdateUser from './components/admin/UpdateUser';
 import ReviewList from './components/admin/ReviewList';
+
+import BoysProducts from './components/Boys';
+import GirlsProducts from './components/Girls';
+import InfantProducts from './components/Infant';
+
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("")
   useEffect(() => {
@@ -58,7 +63,9 @@ function App() {
             <ToastContainer theme='dark' />
             <Routes>
               <Route path='/' element={<Home />} />
-
+              <Route path="/boys" element={<BoysProducts />} />
+              <Route path="/girls" element={<GirlsProducts />} />
+              <Route path="/infant" element={<InfantProducts />} />
               <Route path='/search/:keyword' element={<ProductSearch />} />
               <Route path='/product/:id' element={<ProductDetail />} />
               <Route path='/login' element={<Login />} />
@@ -69,7 +76,6 @@ function App() {
               <Route path='/password/forgot' element={<ForgotPassword />} />
               <Route path='/password/reset/:token' element={<ResetPassword />} />
               <Route path='/cart' element={<Cart />} />
-
               <Route path='/shipping' element={<ProtectedRoute><Shipping /></ProtectedRoute>} />
               <Route path='/order/confirm' element={<ProtectedRoute><ConfirmOrder /></ProtectedRoute>} />
               <Route path='/order/success' element={<ProtectedRoute><OrderSuccess /></ProtectedRoute>} />
