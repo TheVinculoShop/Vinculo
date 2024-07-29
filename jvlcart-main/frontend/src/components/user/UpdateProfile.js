@@ -14,29 +14,6 @@ export default function UpdateProfile() {
     const [avatarPreview, setAvatarPreview] = useState("/images/default_avatar.png");
     const dispatch = useDispatch();
 
-    const onChangeAvatar = (e) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-            if (reader.readyState === 2) {
-                setAvatarPreview(reader.result);
-                setAvatar(e.target.files[0]);
-            }
-        };
-
-        reader.readAsDataURL(e.target.files[0]);
-    };
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("email", email);
-        formData.append("phoneNumber", phoneNumber);
-        formData.append("address", address);
-        formData.append("avatar", avatar);
-        dispatch(updateProfile(formData));
-    };
-
     useEffect(() => {
         if (user) {
             setName(user.name);
@@ -69,15 +46,37 @@ export default function UpdateProfile() {
         }
     }, [user, isUpdated, error, dispatch]);
 
+    const onChangeAvatar = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setAvatarPreview(reader.result);
+                setAvatar(e.target.files[0]);
+            }
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    };
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("phoneNumber", phoneNumber);
+        formData.append("address", address);
+        formData.append("avatar", avatar);
+        dispatch(updateProfile(formData));
+    };
+
     return (
         <div className="row wrapper">
             <div className="col-10 col-lg-5">
                 <form onSubmit={submitHandler} className="shadow-lg" encType="multipart/form-data">
-                <img 
-                            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" // Replace with the path to your image or GIF
-                            alt="Visual Aid" 
-                            style={{ width: '100px', height: 'auto',margin: 'auto',display:'block' }} // Adjust width as needed
-                        />
+                    <img 
+                        src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                        alt="Visual Aid"
+                        style={{ width: '100px', height: 'auto', margin: 'auto', display: 'block' }}
+                    />
                     <h1 className="mt-2 mb-5" style={{ textAlign: 'center', marginBottom: '20px' }}>Update Profile</h1>
 
                     <div className="form-group">
@@ -154,35 +153,35 @@ export default function UpdateProfile() {
                             </div>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <button type="submit" 
-                    style={{ 
-                        backgroundColor: '#102C57', 
-                        color: '#fff', 
-                        borderRadius: '20px', 
-                        padding: '10px 20px', 
-                        fontSize: '14px', 
-                        width: '150px',
-                        transition: 'background-color 0.3s, transform 0.3s, box-shadow 0.3s',
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                        borderWidth:'0px'
-                    }}
-                    className="btn update-btn btn-block mt-4 mb-3" 
-                    onMouseOver={e => {
-                        e.target.style.backgroundColor = '#0A1C3B';
-                        e.target.style.transform = 'scale(1.05)';
-                        e.target.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.3)';
-                    }}
-                    onMouseOut={e => {
-                        e.target.style.backgroundColor = '#102C57';
-                        e.target.style.transform = 'scale(1)';
-                        e.target.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
-                    }}
-                    >
-                        
-                        Update
-                    </button>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <button
+                            type="submit"
+                            style={{
+                                backgroundColor: '#102C57',
+                                color: '#fff',
+                                borderRadius: '20px',
+                                padding: '10px 20px',
+                                fontSize: '14px',
+                                width: '150px',
+                                transition: 'background-color 0.3s, transform 0.3s, box-shadow 0.3s',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                                borderWidth: '0px'
+                            }}
+                            className="btn update-btn btn-block mt-4 mb-3"
+                            onMouseOver={(e) => {
+                                e.target.style.backgroundColor = '#0A1C3B';
+                                e.target.style.transform = 'scale(1.05)';
+                                e.target.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.3)';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.backgroundColor = '#102C57';
+                                e.target.style.transform = 'scale(1)';
+                                e.target.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                            }}
+                        >
+                            Update
+                        </button>
                     </div>
                 </form>
             </div>

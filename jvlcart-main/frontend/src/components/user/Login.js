@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearAuthError, login } from "../../actions/userActions";
+import { clearAuthError, login, loginWithGoogle } from "../../actions/userActions";
 import MetaData from "../layouts/MetaData";
 import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import './login.css';
 
 export default function Login() {
@@ -30,27 +30,31 @@ export default function Login() {
     }
 
     if (error) {
-      toast(error, {
+      toast.error(error, {
         position: toast.POSITION.BOTTOM_CENTER,
-        type: "error",
         onOpen: () => {
-          dispatch(clearAuthError);
+          dispatch(clearAuthError());
         },
       });
-      return;
     }
-  }, [error, isAuthenticated, dispatch, navigate]);
+  }, [error, isAuthenticated, dispatch, navigate, redirect]);
 
-  const googleAuth = () => {
-    window.open(
-        `${process.env.REACT_APP_API_URL}/auth/google/callback`,
-        "_self"
-    );
-};
+  const googleSuccess = (response) => {
+    console.log("Google login successful:", response);
+    dispatch(loginWithGoogle(response.credential));
+    navigate('/');
+  };
+
+  const googleFailure = (error) => {
+    console.error("Google login failed:", error);
+    toast.error("Google login failed. Please try again.", {
+      position: toast.POSITION.BOTTOM_CENTER,
+    });
+  };
 
   return (
     <Fragment>
-      <MetaData title={`Login`} />
+      <MetaData title="Login" />
       <div className="row wrapper">
         <div className="col-10 col-lg-5">
           <form onSubmit={submitHandler} className="shadow-lg">
@@ -90,10 +94,23 @@ export default function Login() {
               LOGIN
             </button>
 
-            <button className='google_btn' onClick={googleAuth}>
-              <img src="./images/google.png" alt="google icon" />
-              <span>Sing in with Google</span>
-            </button>
+            <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+              <GoogleLogin
+                onSuccess={googleSuccess}
+                onFailure={googleFailure}
+                render={(renderProps) => (
+                  <button
+                    className="google_btn"
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}
+                    type="button"
+                  >
+                    <img src="./images/google.png" alt="google icon" />
+                    <span>Sign in with Google</span>
+                  </button>
+                )}
+              />
+            </GoogleOAuthProvider>
 
             <Link to="/register" className="float-right mt-3">
               New User?

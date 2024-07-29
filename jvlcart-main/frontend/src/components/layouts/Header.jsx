@@ -11,8 +11,10 @@ export default function Header() {
   const { items: cartItems } = useSelector((state) => state.cartState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const logoutHandler = () => {
-    dispatch(logout);
+    dispatch(logout()); // Correctly call the logout function
+    navigate("/"); // Optionally, redirect to the home page after logout
   };
 
   return (
@@ -41,7 +43,7 @@ export default function Header() {
               Girls
             </Link>
             <Link to="/infant" className="mx-2 text-white">
-              infant
+              Infant
             </Link>
           </div>
         </div>
@@ -60,16 +62,17 @@ export default function Header() {
                 <figure className="avatar avatar-nav">
                   <Image
                     width="50px"
-                    src={user.avatar ?? "./images/default_avatar.png"}
+                    src={user?.avatar ?? "./images/default_avatar.png"}
+                    alt={user?.name ?? "User"}
                   />
                 </figure>
-                <span>{user.name}</span>
+                <span>{user?.name ?? "User"}</span>
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                {user.role === "admin" && (
+                {user?.role === "admin" && (
                   <Dropdown.Item
                     onClick={() => {
-                      navigate("admin/dashboard");
+                      navigate("/admin/dashboard");
                     }}
                     className="text-dark"
                   >
