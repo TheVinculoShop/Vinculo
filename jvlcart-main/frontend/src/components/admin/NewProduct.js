@@ -19,7 +19,7 @@ export  default function NewProduct () {
     const { loading, isProductCreated, error } = useSelector( state => state.productState)
 
     const categories = [
-        'Electronics',
+        'Boys',
         'Mobile Phones',
         'Laptops',
         'Accessories',
@@ -30,7 +30,7 @@ export  default function NewProduct () {
         'Beauty/Health',
         'Sports',
         'Outdoor',
-        'Home'
+        'Home',
     ];
 
     const navigate = useNavigate();
