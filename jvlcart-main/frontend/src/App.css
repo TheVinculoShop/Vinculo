@@ -50,7 +50,6 @@ nav {
 #login_btn,
 #view_btn {
   background-color: #febd69;
-  padding: 0.4rem 1.8rem;
   font-family: calibri;
 }
 
@@ -812,7 +811,6 @@ ul.CTAs a {
   margin-top: 80px;
 }
 
-
 @media (max-width: 576px) {
   .col-6 {
     max-width: 50%;
@@ -852,5 +850,11 @@ ul.CTAs a {
     /* Reduced button padding */
     font-size: 0.75rem;
     /* Further reduced button font size */
+    display: block;
+    /* Ensure button is displayed as a block element */
+    width: 100%;
+    /* Make button take full width on small devices */
+    text-align: center;
+    /* Center text inside the button */
   }
 }
