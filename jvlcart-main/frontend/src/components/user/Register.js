@@ -6,26 +6,27 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
     const [userData, setUserData] = useState({
-        fullName: "",
-        emailAddress: "",
-        userPassword: ""
+        name: "",
+        email: "",
+        password: ""
     });
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { loading, error, isAuthenticated } = useSelector(state => state.authState);
 
     const onChange = (e) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
-    };
+    }
 
     const submitHandler = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('name', userData.fullName);
-        formData.append('email', userData.emailAddress);
-        formData.append('password', userData.userPassword);
+        formData.append('name', userData.name);
+        formData.append('email', userData.email);
+        formData.append('password', userData.password);
         dispatch(register(formData));
-    };
+    }
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -33,16 +34,17 @@ export default function Register() {
             return;
         }
         if (error) {
-            toast.error(error, {
+            toast(error, {
                 position: toast.POSITION.BOTTOM_CENTER,
-                onOpen: () => { dispatch(clearAuthError()) }
+                type: 'error',
+                onOpen: () => { dispatch(clearAuthError) }
             });
             return;
         }
     }, [error, isAuthenticated, dispatch, navigate]);
 
     return (
-        <div className="wrapper" style={{ 
+        <div className="row wrapper" style={{ 
             display: 'flex', 
             justifyContent: 'center', 
             alignItems: 'center', 
@@ -55,7 +57,7 @@ export default function Register() {
             color: '#102C57', // Set default text color
             padding: '0 20px' // Padding for mobile view
         }}>
-            <img src="/images/reg.AVIF" alt="Side" style={{ 
+             <img src="/images/reg.jpg" alt="Side" style={{ 
                 position: 'absolute', 
                 left: '0', 
                 top: '50%', 
@@ -82,20 +84,14 @@ export default function Register() {
                     maxWidth: '100%'
                 }
             }}>
-                <form onSubmit={submitHandler} className="shadow-lg p-4 rounded" encType='multipart/form-data' style={{ 
+                <form onSubmit={submitHandler} className="shadow-lg form-container" encType='multipart/form-data'  style={{ 
                     backgroundColor: '#ffffff', 
                     color: '#102C57', // Set form text color
                     fontFamily: 'Arial, sans-serif', 
                     borderRadius: '1rem', 
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' 
                 }}>
-                    <div className="d-flex align-items-center justify-content-center mb-4" style={{
-                        flexDirection: 'column',
-                        '@media (min-width: 768px)': { // Adjust layout for tablet and desktop
-                            flexDirection: 'row'
-                        }
-                    }}>
-                        <h1 className="mb-0" style={{ 
+                    <h1 className="mb-3" style={{ 
                             color: '#102C57', 
                             fontSize: '2rem', 
                             marginRight: '0', 
@@ -105,25 +101,17 @@ export default function Register() {
                                 marginRight: '20px',
                                 marginBottom: '0'
                             }
-                        }}>Sign Up</h1>
-                        <img src="/images/logopic.png" alt="Logo" style={{ 
-                            width: '30px',
-                            '@media (max-width: 767px)': { // Adjust size for mobile
-                                width: '25px'
-                            }
-                        }} />
-                    </div>
+                        }}>Register</h1>
 
                     <div className="form-group">
-                        <label htmlFor="fullName_field" className="font-weight-bold" style={{ color: '#102C57' }}>Full Name</label>
-                        <input
-                            name='fullName'
-                            onChange={onChange}
-                            type="text"
-                            id="fullName_field"
-                            className="form-control"
-                            placeholder="Enter your full name"
-                            style={{ 
+                        <label htmlFor="name_field"  style={{ color: '#102C57' }}>Name</label>
+                        <input 
+                            name='name' 
+                            onChange={onChange} 
+                            type="text" 
+                            id="name_field" 
+                            className="form-control input-field" 
+                            placeholder="Enter your name"   style={{ 
                                 borderColor: '#102C57', 
                                 borderRadius: '0.5rem', 
                                 fontFamily: 'Arial, sans-serif', 
@@ -137,15 +125,14 @@ export default function Register() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="emailAddress_field" className="font-weight-bold" style={{ color: '#102C57' }}>Email Address</label>
+                        <label htmlFor="email_field" style={{ color: '#102C57' }}>Email</label>
                         <input
                             type="email"
-                            id="emailAddress_field"
-                            name='emailAddress'
+                            id="email_field"
+                            name='email'
                             onChange={onChange}
-                            className="form-control"
-                            placeholder="Enter your email address"
-                            style={{ 
+                            className="form-control input-field"
+                            placeholder="Enter your email" style={{ 
                                 borderColor: '#102C57', 
                                 borderRadius: '0.5rem', 
                                 fontFamily: 'Arial, sans-serif', 
@@ -159,15 +146,14 @@ export default function Register() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="userPassword_field" className="font-weight-bold" style={{ color: '#102C57' }}>Password</label>
+                        <label htmlFor="password_field"  style={{ color: '#102C57' }}>Password</label>
                         <input
-                            name='userPassword'
+                            name='password'
                             onChange={onChange}
                             type="password"
-                            id="userPassword_field"
-                            className="form-control"
-                            placeholder="Create a password"
-                            style={{ 
+                            id="password_field"
+                            className="form-control input-field"
+                            placeholder="Enter your password"  style={{ 
                                 borderColor: '#102C57', 
                                 borderRadius: '0.5rem', 
                                 fontFamily: 'Arial, sans-serif', 
@@ -184,8 +170,8 @@ export default function Register() {
                     <button
                         id="register_button"
                         type="submit"
-                        className="btn btn-primary btn-block py-2"
-                        disabled={loading}
+                        className="btn btn-block py-3 btn-register"
+                        disabled={loading} 
                         style={{
                             backgroundColor: '#102C57',
                             borderColor: '#102C57',
@@ -201,7 +187,7 @@ export default function Register() {
                         onMouseEnter={e => e.target.style.backgroundColor = '#CFD8DC'}
                         onMouseLeave={e => e.target.style.backgroundColor = '#102C57'}
                     >
-                        {loading ? 'REGISTERING...' : 'SIGN UP'}
+                        REGISTER
                     </button>
                 </form>
             </div>
