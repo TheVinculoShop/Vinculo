@@ -29,7 +29,7 @@ const Row = styled.div`
     flex-wrap: wrap;
 `;
 
-export default function BoysProducts() {
+export default function GirlsProducts() {
     const dispatch = useDispatch();
     const { products, loading, error, productsCount, resPerPage } = useSelector((state) => state.productsState);
     const [currentPage, setCurrentPage] = useState(1);
@@ -79,5 +79,5 @@ export default function BoysProducts() {
                 </Fragment>
             }
         </Fragment>
-    );
+    )
 }
