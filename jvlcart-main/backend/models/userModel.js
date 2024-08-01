@@ -23,12 +23,16 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        required: [true, 'Please enter phone number'],
-        validate: [validator.isMobilePhone, 'Please enter a valid phone number']
+        validate: {
+            validator: function (v) {
+                return /^\d{10}$/.test(v);
+            },
+            message: props => `${props.value} is not a valid 10-digit phone number!`
+        }
     },
     address: {
         type: String,
-        required: [true, 'Please enter address']
+        trim: true
     },
     avatar: {
         type: String
