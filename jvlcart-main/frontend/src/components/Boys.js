@@ -32,13 +32,11 @@ export default function GirlsProducts() {
                     <MetaData title={'Boys Products'} />
                     <h1 id="products_heading">Boys Products</h1>
                     <section id="products" className="container mt-5">
-                        <Row>
+                        <div className="row">
                             {products && products.map(product => (
-                                <ProductCard key={product._id}>
-                                    <Product col={3} product={product} />
-                                </ProductCard>
+                                <Product col={3} key={product._id} product={product} />
                             ))}
-                        </Row>
+                        </div>
                     </section>
                     {productsCount > 0 && productsCount > resPerPage ?
                         <div className="d-flex justify-content-center mt-5">
