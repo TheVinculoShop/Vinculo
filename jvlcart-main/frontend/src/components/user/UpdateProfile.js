@@ -31,7 +31,7 @@ export default function UpdateProfile() {
         const formData = new FormData();
         formData.append("name", name);
         formData.append("email", email);
-        formData.append("phoneNumber", phoneNumber);
+        formData.append("phone", phoneNumber); // Changed to match backend schema
         formData.append("address", address);
         formData.append("avatar", avatar);
         dispatch(updateProfile(formData));
@@ -41,7 +41,7 @@ export default function UpdateProfile() {
         if (user) {
             setName(user.name);
             setEmail(user.email);
-            setPhoneNumber(user.phoneNumber || ""); // Assuming user.phoneNumber is available from backend
+            setPhoneNumber(user.phone || ""); // Assuming user.phone is available from backend
             setAddress(user.address || ""); // Assuming user.address is available from backend
             if (user.avatar) {
                 setAvatarPreview(user.avatar);
@@ -69,15 +69,20 @@ export default function UpdateProfile() {
         }
     }, [user, isUpdated, error, dispatch]);
 
+    const rowwrapper = {
+        paddingTop: '30px', // Adjust based on header height
+        paddingBottom: '100px' // Adjust based on footer height
+    };
+
     return (
-        <div className="row wrapper">
+        <div style={rowwrapper} className="row wrapper">
             <div className="col-10 col-lg-5">
                 <form onSubmit={submitHandler} className="shadow-lg" encType="multipart/form-data">
-                <img 
-                            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" // Replace with the path to your image or GIF
-                            alt="Visual Aid" 
-                            style={{ width: '100px', height: 'auto',margin: 'auto',display:'block' }} // Adjust width as needed
-                        />
+                    <img 
+                        src={avatarPreview} // Update src with avatarPreview state
+                        alt="Visual Aid" 
+                        style={{ width: '100px', height: 'auto', margin: 'auto', display: 'block' }} // Adjust width as needed
+                    />
                     <h1 className="mt-2 mb-5" style={{ textAlign: 'center', marginBottom: '20px' }}>Update Profile</h1>
 
                     <div className="form-group">
@@ -113,6 +118,7 @@ export default function UpdateProfile() {
                             name="phoneNumber"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
+                            maxLength="10" // Ensure phone number length
                         />
                     </div>
 
@@ -129,7 +135,7 @@ export default function UpdateProfile() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="avatar_upload">Avatar</label>
+                        <label htmlFor="avatar_upload">Profile</label>
                         <div className="d-flex align-items-center">
                             <div>
                                 <figure className="avatar mr-3 item-rtl">
@@ -154,35 +160,35 @@ export default function UpdateProfile() {
                             </div>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <button type="submit" 
-                    style={{ 
-                        backgroundColor: '#102C57', 
-                        color: '#fff', 
-                        borderRadius: '20px', 
-                        padding: '10px 20px', 
-                        fontSize: '14px', 
-                        width: '150px',
-                        transition: 'background-color 0.3s, transform 0.3s, box-shadow 0.3s',
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                        borderWidth:'0px'
-                    }}
-                    className="btn update-btn btn-block mt-4 mb-3" 
-                    onMouseOver={e => {
-                        e.target.style.backgroundColor = '#0A1C3B';
-                        e.target.style.transform = 'scale(1.05)';
-                        e.target.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.3)';
-                    }}
-                    onMouseOut={e => {
-                        e.target.style.backgroundColor = '#102C57';
-                        e.target.style.transform = 'scale(1)';
-                        e.target.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
-                    }}
-                    >
-                        
-                        Update
-                    </button>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <button 
+                            type="submit" 
+                            style={{ 
+                                backgroundColor: '#102C57', 
+                                color: '#fff', 
+                                borderRadius: '20px', 
+                                padding: '10px 20px', 
+                                fontSize: '14px', 
+                                width: '150px',
+                                transition: 'background-color 0.3s, transform 0.3s, box-shadow 0.3s',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                                borderWidth: '0px'
+                            }}
+                            className="btn update-btn btn-block mt-4 mb-3" 
+                            onMouseOver={e => {
+                                e.target.style.backgroundColor = '#0A1C3B';
+                                e.target.style.transform = 'scale(1.05)';
+                                e.target.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.3)';
+                            }}
+                            onMouseOut={e => {
+                                e.target.style.backgroundColor = '#102C57';
+                                e.target.style.transform = 'scale(1)';
+                                e.target.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                            }}
+                        >
+                            Update
+                        </button>
                     </div>
                 </form>
             </div>
