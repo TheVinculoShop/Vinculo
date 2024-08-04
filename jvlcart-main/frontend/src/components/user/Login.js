@@ -39,10 +39,35 @@ export default function Login() {
     }
   }, [error, isAuthenticated, dispatch, navigate, redirect]);
 
-  const googleSuccess = (response) => {
+  const googleSuccess = async (response) => {
     console.log("Google login successful:", response);
-    dispatch(loginWithGoogle(response.credential));
-    navigate('/');
+    try {
+      const res = await fetch('http://localhost:3000/api/v1/google-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ tokenId: response.credential }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log("Login successful:", data);
+        // Dispatch any necessary actions and navigate
+        dispatch(loginWithGoogle(response.credential)); // Optional, if you want to update the state
+        navigate('/');
+      } else {
+        toast.error(data.message || "Google login failed. Please try again.", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    } catch (error) {
+      console.error("Google login failed:", error);
+      toast.error("Google login failed. Please try again.", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    }
   };
 
   const googleFailure = (error) => {

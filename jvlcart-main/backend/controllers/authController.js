@@ -250,32 +250,41 @@ exports.deleteUser = catchAsyncError(async (req, res, next) => {
 });
 
 // Google Login - /api/v1/google-login
+// controllers/authController.js
 exports.googleLogin = catchAsyncError(async (req, res, next) => {
     const { tokenId } = req.body;
 
     try {
+        console.log('Received tokenId:', tokenId);
+        console.log('Google Client ID:', process.env.GOOGLE_CLIENT_ID);
+
         const ticket = await client.verifyIdToken({
             idToken: tokenId,
-            audience: process.env.GOOGLE_CLIENT_ID
+            audience: process.env.GOOGLE_CLIENT_ID,
         });
 
         const { email, name, picture } = ticket.getPayload();
+        console.log('Google payload:', { email, name, picture });
 
         let user = await User.findOne({ email });
+        console.log('User found:', user);
 
         if (!user) {
+            console.log('Creating new user');
+            const placeholderPassword = crypto.randomBytes(16).toString('hex');
             user = await User.create({
                 name,
                 email,
                 avatar: picture,
-                // If phone and address are not available from Google, set them as empty or handle accordingly
+                password: placeholderPassword,
                 phone: '',
-                address: ''
+                address: '',
             });
         }
 
         sendToken(user, 200, res);
     } catch (error) {
+        console.error("Google login error:", error);
         return next(new ErrorHandler('Google login failed', 500));
     }
 });

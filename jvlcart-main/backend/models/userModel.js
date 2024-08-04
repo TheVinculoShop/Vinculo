@@ -17,9 +17,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Please enter password'],
-        minlength: [6, 'Password must be at least 6 characters long'],
-        select: false
+        select: false // Do not return the password by default
     },
     phone: {
         type: String,
@@ -49,11 +47,12 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function(next) {
     if (!this.isModified('password')) {
         next();
     }
-    this.password = await bcrypt.hash(this.password, 10);
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
 });
 
 userSchema.methods.getJwtToken = function () {
@@ -62,8 +61,8 @@ userSchema.methods.getJwtToken = function () {
     });
 };
 
-userSchema.methods.isValidPassword = async function (enteredPassword) {
-    return bcrypt.compare(enteredPassword, this.password);
+userSchema.methods.isValidPassword = async function(enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
 };
 
 userSchema.methods.getResetToken = function () {
