@@ -1,110 +1,118 @@
 import { Fragment, useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from "react-router-dom";
 import { getUser, updateUser } from "../../actions/userActions";
 import { clearError, clearUserUpdated } from "../../slices/userSlice";
 import { toast } from "react-toastify";
 
-export default function UpdateUser () {
+export default function UpdateUser() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [role, setRole] = useState("");
    
-    const { id:userId } = useParams();
+    const { id: userId } = useParams();
     
-    const { loading, isUserUpdated, error, user } = useSelector( state => state.userState)
-    const {  user:authUser } = useSelector( state => state.authState)
+    const { loading, isUserUpdated, error, user } = useSelector(state => state.userState);
+    const { user: authUser } = useSelector(state => state.authState);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('name' , name);
-        formData.append('email' , email);
-        formData.append('role' , role);
-        dispatch(updateUser(userId, formData))
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('role', role);
+        dispatch(updateUser(userId, formData));
     }
 
     useEffect(() => {
-        if(isUserUpdated) {
-            toast('User Updated Succesfully!',{
+        if (isUserUpdated) {
+            toast('User Updated Successfully!', {
                 type: 'success',
                 position: toast.POSITION.BOTTOM_CENTER,
                 onOpen: () => dispatch(clearUserUpdated())
-            })
+            });
+            navigate('/admin/users'); // Navigate to users list after update
             return;
         }
 
-        if(error)  {
+        if (error) {
             toast(error, {
                 position: toast.POSITION.BOTTOM_CENTER,
                 type: 'error',
-                onOpen: ()=> { dispatch(clearError()) }
-            })
-            return
+                onOpen: () => { dispatch(clearError()) }
+            });
+            return;
         }
 
-        dispatch(getUser(userId))
-    }, [isUserUpdated, error, dispatch])
-
+        dispatch(getUser(userId));
+    }, [isUserUpdated, error, dispatch, navigate, userId]);
 
     useEffect(() => {
-        if(user._id) {
+        if (user && user._id) {
             setName(user.name);
             setEmail(user.email);
             setRole(user.role);
         }
-    },[user])
-
+    }, [user]);
 
     return (
         <div className="row">
             <div className="col-12 col-md-2">
-                    <Sidebar/>
+                <Sidebar />
             </div>
             <div className="col-12 col-md-10">
                 <Fragment>
-                    <div className="wrapper my-5"> 
+                    <div className="wrapper my-5">
                         <form onSubmit={submitHandler} className="shadow-lg" encType='multipart/form-data'>
                             <h1 className="mb-4">Update User</h1>
 
                             <div className="form-group">
-                            <label htmlFor="name_field">Name</label>
-                            <input
-                                type="text"
-                                id="name_field"
-                                className="form-control"
-                                onChange={e => setName(e.target.value)}
-                                value={name}
-                            />
+                                <label htmlFor="name_field">Name</label>
+                                <input
+                                    type="text"
+                                    id="name_field"
+                                    className="form-control"
+                                    onChange={e => setName(e.target.value)}
+                                    value={name}
+                                />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="price_field">Email</label>
+                                <label htmlFor="email_field">Email</label>
                                 <input
-                                type="text"
-                                id="price_field"
-                                className="form-control"
-                                onChange={e => setEmail(e.target.value)}
-                                value={email}
+                                    type="email"
+                                    id="email_field"
+                                    className="form-control"
+                                    onChange={e => setEmail(e.target.value)}
+                                    value={email}
                                 />
                             </div>
+
                             <div className="form-group">
-                                <label htmlFor="category_field">Role</label>
-                                <select disabled={user._id === authUser._id } value={role} onChange={e => setRole(e.target.value)} className="form-control" id="category_field">
+                                <label htmlFor="role_field">Role</label>
+                                <select
+                                    disabled={user._id === authUser._id || user.authProvider === 'google'}
+                                    value={role}
+                                    onChange={e => setRole(e.target.value)}
+                                    className="form-control"
+                                    id="role_field"
+                                >
                                     <option value="admin">Admin</option>
                                     <option value="user">User</option>
                                 </select>
                             </div>
+
                             <button
-                            id="login_button"
-                            type="submit"
-                            disabled={loading}
-                            className="btn btn-block py-3"
+                                id="update_button"
+                                type="submit"
+                                disabled={loading}
+                                className="btn btn-block py-3"
                             >
-                            UPDATE
+                                UPDATE
                             </button>
 
                         </form>
@@ -112,6 +120,5 @@ export default function UpdateUser () {
                 </Fragment>
             </div>
         </div>
-        
-    )
+    );
 }

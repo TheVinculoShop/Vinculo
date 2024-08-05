@@ -50,8 +50,25 @@ function App() {
     getStripeApiKey()
   },[])
 
+  const [user, setUser] = useState(null);
+
+	const getUser = async () => {
+		try {
+			const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
+			const { data } = await axios.get(url, { withCredentials: true });
+			console.log(data.user)
+			setUser(data.user._json);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
+
+
   return (
-    <Router>
       <div className="App">
         <HelmetProvider>
             <Header/>
@@ -93,7 +110,7 @@ function App() {
             <Footer/>
         </HelmetProvider>
       </div>
-    </Router>
+    
   );
 }
 
