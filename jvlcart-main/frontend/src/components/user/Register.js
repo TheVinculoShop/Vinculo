@@ -47,13 +47,10 @@ export default function Register() {
             justifyContent: 'center', 
             alignItems: 'center', 
             height: '100vh', 
-            backgroundColor: '#ffffff', 
+            backgroundColor: '#f8f9fa', 
             fontFamily: 'Arial, sans-serif', 
-            position: 'relative',
-            overflow: 'hidden', // Prevent scrolling
             margin: 0,
-            color: '#102C57', // Set default text color
-            padding: '0 20px' // Padding for mobile view
+            padding: '0 20px' 
         }}>
             <img src="/images/reg.AVIF" alt="Side" style={{ 
                 position: 'absolute', 
@@ -62,48 +59,47 @@ export default function Register() {
                 transform: 'translateY(-50%)', 
                 width: '300px', 
                 height: '200px',
-                display: 'none', // Hide image on mobile
-                '@media (min-width: 768px)': { // Show image on tablet and desktop
+                display: 'none', 
+                '@media (min-width: 768px)': { 
                     display: 'block'
                 }
             }} />
-            <div className="col-10 col-lg-5" style={{ 
-                boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15)', 
-                borderRadius: '1rem', 
+            <div style={{ 
+                boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)', 
+                borderRadius: '0.75rem', 
                 backgroundColor: '#ffffff', 
                 padding: '20px', 
                 width: '100%', 
-                maxWidth: '500px', 
+                maxWidth: '400px', 
                 position: 'relative',
-                overflow: 'hidden', // Prevent scrolling within the container
-                marginTop: '0', // Ensure container is at the top of the viewport
-                '@media (max-width: 767px)': { // Adjust padding and max-width for mobile
-                    padding: '10px',
+                marginTop: '0', 
+                '@media (max-width: 767px)': { 
+                    padding: '15px',
                     maxWidth: '100%'
                 }
             }}>
                 <form onSubmit={submitHandler} className="shadow-lg p-4 rounded" encType='multipart/form-data' style={{ 
                     backgroundColor: '#ffffff', 
-                    color: '#102C57', // Set form text color
+                    color: '#102C57', 
                     fontFamily: 'Arial, sans-serif', 
-                    borderRadius: '1rem', 
+                    borderRadius: '0.75rem', 
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' 
                 }}>
                     <div className="d-flex align-items-center justify-content-center mb-4" style={{
                         flexDirection: 'row',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        '@media (max-width: 767px)': { // Adjust layout for mobile
+                        '@media (max-width: 767px)': { 
                             flexDirection: 'column'
                         }
                     }}>
                         <h1 className="mb-0" style={{ 
                             color: '#102C57', 
-                            fontSize: '2rem', 
+                            fontSize: '1.75rem', 
                             marginRight: '0', 
                             marginBottom: '10px',
-                            '@media (min-width: 768px)': { // Adjust font size and margin for tablet and desktop
-                                fontSize: '2.5rem',
+                            '@media (min-width: 768px)': { 
+                                fontSize: '2.25rem',
                                 marginRight: '20px',
                                 marginBottom: '0'
                             }
@@ -111,7 +107,7 @@ export default function Register() {
                         <img src="/images/logopic.png" alt="Logo" style={{ 
                             width: '30px',
                             marginLeft: '10px',
-                            '@media (max-width: 767px)': { // Adjust size for mobile
+                            '@media (max-width: 767px)': { 
                                 width: '25px',
                                 marginLeft: '0',
                                 marginTop: '10px'
@@ -200,8 +196,8 @@ export default function Register() {
                             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                             color: '#ffffff',
                             transition: 'background-color 0.3s ease',
-                            width: '50%', // Reduce button width
-                            margin: '0 auto' // Center the button
+                            width: '100%',
+                            margin: '10px 0'
                         }}
                         onMouseEnter={e => e.target.style.backgroundColor = '#CFD8DC'}
                         onMouseLeave={e => e.target.style.backgroundColor = '#102C57'}
