@@ -16,6 +16,12 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter product description"]
     },
+    size : {
+        type: String,
+        required: [true, "Please enter product name"],
+        trim: true,
+        maxLength: [100, "Product name cannot exceed 100 characters"]
+    },
     ratings: {
         type: String,
         default: 0
@@ -35,16 +41,7 @@ const productSchema = new mongoose.Schema({
             values: [
                 'Boys',
                 'Girls',
-                'Infants',
-                'Accessories',
-                'Headphones',
-                'Food',
-                'Books',
-                'Clothes/Shoes',
-                'Beauty/Health',
-                'Sports',
-                'Outdoor',
-                'Home'
+                'Infants'
             ],
             message : "Please select correct category"
         }
