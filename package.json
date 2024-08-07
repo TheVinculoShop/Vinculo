@@ -1,34 +1,16 @@
 {
-  
   "name": "vinculo",
-  
   "version": "1.0.0",
-  
   "description": "",
-  
   "main": "index.js",
-  
   "scripts": {
-  
-    
-  "test": "echo \"Error: no test specified\" && exit 1"
-  
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  
   "author": "",
-  
   "license": "ISC",
-  
   "dependencies": {
-  
-    
-  "nodemailer": "^6.9.14",
-  
-    
-  "nodemon": "^3.1.4",
-  
-    
-  "stripe": "^16.5.0"
-  
+    "nodemailer": "^6.9.14",
+    "nodemon": "^3.1.4",
+    "stripe": "^16.5.0"
   }
 }

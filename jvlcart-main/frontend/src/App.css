@@ -112,14 +112,14 @@ nav {
 }
 
 .ratings {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #fdcc0d;
 }
 
 #no_of_reviews {
   font-size: 0.85rem;
   color: grey;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
 }
 
 .image-container {
@@ -716,7 +716,7 @@ ul.CTAs a {
 }
 
 .review_user {
-  font-size: 0.8rem;
+  font-size: 0.4rem;
   color: grey;
 }
 
@@ -819,42 +819,36 @@ ul.CTAs a {
 
   .card {
     padding: 1rem;
+    width: 140%;
   }
 
   .card-img-top {
     height: 120px;
-    /* Further reduced image height */
     width: 100%;
-    /* Ensure image takes full width of the card */
     object-fit: cover;
-    /* Keeps aspect ratio and covers the container */
   }
 
   .card-title {
     font-size: 0.875rem;
-    /* Further reduced title font size */
   }
 
   .card-text {
     font-size: 0.75rem;
-    /* Further reduced price font size */
   }
 
   .ratings {
     font-size: 0.75rem;
-    /* Reduced ratings font size */
   }
 
   .btn {
     padding: 0.25rem 0.5rem;
-    /* Reduced button padding */
     font-size: 0.75rem;
-    /* Further reduced button font size */
     display: block;
-    /* Ensure button is displayed as a block element */
     width: 100%;
-    /* Make button take full width on small devices */
     text-align: center;
-    /* Center text inside the button */
   }
+}
+
+#no_of_reviews{
+  font-size: 0.7rem;
 }

@@ -1,9 +1,10 @@
 [
   {
-    "name": "BAESD",
+    "name": "OPPO F21s Pro 5G",
     "price": 245.67,
     "description": "Kids Round Neck Bio Finish Pure Cotton T-shirt",
     "ratings": 4.5,
+    "size": "XL",
     "images": [
       {
         "image": "/images/products/boy4.jpg"
@@ -16,10 +17,11 @@
     "reviews": []
   },
   {
-    "name": "United Colors of Benetton",
+    "name": "WRISTIO HD, Bluetooth Calling Smart Watch",
     "price": 150.32,
     "description": "Kids Round Neck Bio Finish Pure Cotton T-shirt",
     "ratings": 3.5,
+    "size": "XL",
     "images": [
       {
         "image": "/images/products/boy3.jpg"
@@ -32,10 +34,11 @@
     "reviews": []
   },
   {
-    "name": "Googo Gaaga",
+    "name": "Dell Inspiron 3511 Laptop",
     "price": 440.57,
     "description": "Kids Round Neck Bio Finish Pure Cotton T-shirt",
     "ratings": 2,
+    "size": "XL",
     "images": [
       {
         "image": "/images/products/boy2.jpg"
@@ -48,10 +51,11 @@
     "reviews": []
   },
   {
-    "name": "BONKIDS",
+    "name": "Lenovo IdeaPad Slim 3 Laptop",
     "price": 250.45,
     "description": "Kids Round Neck Bio Finish Pure Cotton T-shirt",
     "ratings": 4,
+    "size": "XL",
     "images": [
       {
         "image": "/images/products/boy1.jpg"
@@ -64,13 +68,14 @@
     "reviews": []
   },
   {
-    "name": "Monte Carlo",
+    "name": "ASUS VivoBook 15 Laptop",
     "price": 767.32,
     "description": "Kids Round Neck Bio Finish Pure Cotton T-shirt",
     "ratings": 5,
+    "size": "XL",
     "images": [
       {
-        "image": "/images/products/boy3.jpg"
+        "image": "/images/products/boys2_shirt.jpg"
       }
     ],
     "category": "Boys",
@@ -80,13 +85,14 @@
     "reviews": []
   },
   {
-    "name": "BONKIDS",
+    "name": "PTron Newly Launched Tangent Sports, 60Hrs Playtime",
     "price": 15.46,
     "description": "Kids Round Neck Bio Finish Pure Cotton T-shirt",
     "ratings": 5,
+    "size": "XL",
     "images": [
       {
-        "image": "/images/products/boy4.jpg"
+        "image": "/images/products/boys2_shirt.jpg"
       }
     ],
     "category": "Boys",
@@ -96,13 +102,14 @@
     "reviews": []
   },
   {
-    "name": "Monte Carlo",
+    "name": "Campus Men's Maxico Running Shoes",
     "price": 10.12,
     "description": "Kids Round Neck Bio Finish Pure Cotton T-shirt",
     "ratings": 3,
+    "size": "XL",
     "images": [
       {
-        "image": "/images/products/boy2.jpg"
+        "image": "/images/products/boys2_shirt.jpg"
       }
     ],
     "category": "Boys",
