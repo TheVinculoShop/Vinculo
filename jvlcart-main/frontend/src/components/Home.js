@@ -37,22 +37,22 @@ export default function Home() {
                     <Carousel className="custom-carousel">
                         <Carousel.Item>
                             <img
-                                className="d-block w-100"
+                                className="d-block w-100 caro-image"
                                 src="images/caro1.jpg"
                                 alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                                className="d-block w-100"
-                                src="images/caro2.jpg"
-                                alt="Second slide"
+                                className="d-block w-100 caro-image"
+                                src="images/caro2.png"
+                                alt="Second slide" 
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                                className="d-block w-100"
-                                src="images/caro3.jpg"
+                                className="d-block w-100 caro-image"
+                                src="images/caro3.png"
                                 alt="Third slide"
                             />
                         </Carousel.Item>
@@ -61,7 +61,7 @@ export default function Home() {
                         <div className="container mt-5">
                             <div className="row">
                                 <div className="col-12 mb-5">
-                                    <h1 id="products_heading">Categories</h1>
+                                    <h1 id="products_heading "className="categories">Categories</h1>
 
                                     <div className="image-container">
                                         <img
@@ -99,7 +99,7 @@ export default function Home() {
 
 
 
-                    <h1 id="products_heading">Latest Products</h1>
+                    <h1 id="products_heading" className="categories">Latest Products</h1>
                     <section id="products" className="container mt-5">
                         <div className="row ">
                             {products && products.map(product => (

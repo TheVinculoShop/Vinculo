@@ -28,7 +28,7 @@ export default function Header() {
                 width="150px"
                 height="50px"
                 alt="JVLcart Logo"
-                src="/images/Group6.svg"
+                src="/images/Group22.svg"
                 className="logo"
               />
             </Link>

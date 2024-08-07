@@ -33,9 +33,17 @@ nav {
   padding: 1rem 1rem;
 }
 
-.navigation-links a{
-  color:#2a292b
+.navigation-links a,
+.categories {
+  color: #2a292b;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow */
+  
 }
+
+.navigation-links a:hover {
+  text-decoration: none;
+}
+
 
 #search_btn {
   background-color: white;
@@ -54,13 +62,13 @@ nav {
   padding: 1rem;
 }
 
-.username{
-  color:#2a292b
+.username {
+  color: #2a292b
 }
 
 #login_btn,
 #view_btn {
-  background-color:white;
+  background-color: white;
   font-family: calibri;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   margin-left: 5px;
@@ -862,13 +870,24 @@ ul.CTAs a {
   }
 }
 
-#no_of_reviews{
+#no_of_reviews {
   font-size: 0.7rem;
 }
 
-.product{
+.product {
   border: 1px solid grey;
   border-top: 0;
   border-left: 0;
   border-radius: 0;
+}
+
+.caro-image {
+  height: 385.7px;
+}
+
+.navbar {
+  height: 70 px;
+  margin-top: 0;
+  padding-top: 0%;
+
 }
