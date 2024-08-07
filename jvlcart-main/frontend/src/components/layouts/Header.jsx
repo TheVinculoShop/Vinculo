@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <nav
       className="navbar row"
-      style={{ backgroundColor: "#102C57", color: "#fff" }}
+      style={{ backgroundColor: "white", color: "black" }}
     >
       <div className="desktop-navbar">
         <div className="col-12 col-md-3 d-flex justify-content-between align-items-center left-side-navbar">
@@ -34,13 +34,13 @@ export default function Header() {
             </Link>
           </div>
           <div className="ml-auto navigation-links">
-            <Link to="/boys" className="mx-2 text-white">
+            <Link to="/boys" className="mx-2 ">
               Boys
             </Link>
-            <Link to="/girls" className="mx-2 text-white">
+            <Link to="/girls" className="mx-2 ">
               Girls
             </Link>
-            <Link to="/infant" className="mx-2 text-white">
+            <Link to="/infant" className="mx-2 ">
               infant
             </Link>
           </div>
@@ -54,7 +54,7 @@ export default function Header() {
           {isAuthenticated ? (
             <Dropdown className="d-inline">
               <Dropdown.Toggle
-                variant="default text-white pr-5"
+                variant="default text-white "
                 id="dropdown-basic"
               >
                 <figure className="avatar avatar-nav">
@@ -63,7 +63,7 @@ export default function Header() {
                     src={user.avatar ?? "./images/default_avatar.png"}
                   />
                 </figure>
-                <span>{user.name}</span>
+                <span className="username">{user.name}</span>
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {user.role === "admin" && (
@@ -102,14 +102,15 @@ export default function Header() {
               Login
             </Link>
           )}
-          <Link to="/cart">
+          <Link to="/cart" className="btn" id="login_btn">
+            <span className="ml-1" id="cart_count">
+              {cartItems.length}
+            </span> 
             <span id="cart" className="ml-3">
               Cart
             </span>
           </Link>
-          <span className="ml-1" id="cart_count">
-            {cartItems.length}
-          </span>
+
         </div>
       </div>
 

@@ -13,7 +13,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        background-color: #002147; /* Adjust this color as needed */
+        background-color: white; /* Adjust this color as needed */
         z-index: 1000;
     }
     

@@ -1,7 +1,8 @@
 .footer {
-  background-color:#002147 !important;
-  color: #ffffff;
+  background-color:white !important;
+  color: #2a292b;
   padding: 20px 20px;
+  box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.3);
 }
 
 .footer-container {
@@ -21,7 +22,7 @@
 .footer-about h3,
 .footer-contact h2 {
   text-decoration: underline;
-  color: #ffffff;
+  color: #2a292b;
 }
 
 .footer-about .about-us {
@@ -29,7 +30,7 @@
 }
 
 .footer-about p{
-  color: #ffffff;
+  color: #2a292b;
 }
 
 .footer-links {
@@ -38,7 +39,7 @@
 
 .footer-links h3 {
   text-decoration: underline;
-  color: #ffffff;
+  color: #2a292b;
 }
 
 .footer-links ul {
@@ -59,18 +60,18 @@
 }
 
 .company-column ul li a {
-  color: #ffffff;
+  color:#2a292b;
   text-decoration: none;
 }
 
 .footer-contact {
   margin-top: 20px;
-  color: #ffffff;
+  color: #2a292b;
 }
 
 .footer-contact p {
   margin: 5px 0;
-  color: #ffffff;
+  color: #2a292b;
 }
 
 .footer-contact .footer-social {
@@ -79,12 +80,12 @@
 
 .footer-contact .footer-social a {
   margin-right: 10px;
-  color: #ffffff;
+  color: #2a292b;
   font-size: 30px;
 }
 
 .footer-social {
-  color: #ffffff;
+  color: #2a292b;
 }
 
 .secure-payment-app {
@@ -99,7 +100,7 @@
 .payment-icons,
 .copyright p {
   text-align: center;
-  color: #ffffff;
+  color: #2a292b;
 }
 
 .payment-icons {
@@ -156,7 +157,7 @@
 
   .footer-social a {
     margin-right: 10px;
-    color: #ffffff;
+    color: #2a292b;
     font-size: 30px;
   }
 

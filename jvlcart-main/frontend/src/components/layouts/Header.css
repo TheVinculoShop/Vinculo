@@ -23,6 +23,10 @@
   }
   
 @media (min-width:768px) {
+    .navbar{
+        padding: 0;
+    }
+
     .mobile-navbar{
         display: none;
     }
@@ -30,8 +34,8 @@
     .desktop-navbar{
         display: flex;
         width:100%;
-        
         justify-content: space-between;
         align-items:center;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     }
 }

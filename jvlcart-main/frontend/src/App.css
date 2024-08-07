@@ -33,13 +33,20 @@ nav {
   padding: 1rem 1rem;
 }
 
+.navigation-links a{
+  color:#2a292b
+}
+
 #search_btn {
-  background-color: #febd69;
+  background-color: white;
+  border: 1px solid grey;
 }
 
 .input-group {
   width: 90%;
   margin-right: 10%;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 #search_field {
@@ -47,22 +54,28 @@ nav {
   padding: 1rem;
 }
 
+.username{
+  color:#2a292b
+}
+
 #login_btn,
 #view_btn {
-  background-color: #febd69;
+  background-color:white;
   font-family: calibri;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  margin-left: 5px;
 }
 
 #cart {
   font-size: 1rem;
-  color: white;
+  color: #2a292b;
 }
 
 #cart_count {
-  background-color: #febd69;
+  background-color: #2a292b;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: black;
+  color: white;
   font-weight: bold;
   font-size: 0.9rem;
 }
@@ -89,7 +102,7 @@ nav {
 }
 
 .card-title a:hover {
-  color: #fa9c23;
+  color: #2a292b;
   text-decoration: none;
 }
 
@@ -102,7 +115,7 @@ nav {
 }
 
 #view_btn {
-  background-color: #fa9c23;
+  background-color: #2a292b;
   color: white;
 }
 
@@ -252,7 +265,7 @@ footer {
 #cart_btn,
 #review_btn {
   border-radius: 2rem;
-  background-color: #fa9c23;
+  background-color: #2a292b;
   border: none;
   padding: 0.5rem 2rem;
 }
@@ -299,8 +312,8 @@ footer {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fa9c23;
-  border-color: #fa9c23 transparent;
+  border: 6px solid #2a292b;
+  border-color: #2a292b transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
@@ -341,15 +354,15 @@ footer {
 
 #checkout_btn,
 .review-btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
   margin-top: 2rem;
   border-radius: 5rem;
 }
 
 #view_order_details {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
 }
 
 #order_summary {
@@ -401,8 +414,8 @@ footer {
 }
 
 .wrapper form .btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
   color: white;
   margin-top: 2.5rem;
 }
@@ -481,7 +494,7 @@ footer {
 }
 
 .active-step {
-  background: #fa9c23;
+  background: #2a292b;
   color: #fff;
 }
 
@@ -489,7 +502,7 @@ footer {
   float: left;
   width: 0;
   border-top: 20px solid transparent;
-  border-left: 15px solid #fa9c23;
+  border-left: 15px solid #2a292b;
   border-bottom: 20px solid transparent;
   margin-left: -1px;
 }
@@ -497,9 +510,9 @@ footer {
 .triangle2-active {
   width: 0;
   float: left;
-  border-top: 20px solid #fa9c23;
+  border-top: 20px solid #2a292b;
   border-left: 15px solid #fff;
-  border-bottom: 20px solid #fa9c23;
+  border-bottom: 20px solid #2a292b;
   margin-right: -1px;
 }
 
@@ -539,8 +552,8 @@ footer {
 }
 
 #edit_profile {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
 }
 
 /* Confirm Order */
@@ -551,8 +564,8 @@ footer {
 }
 
 .update-btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
   color: white;
 }
 
@@ -562,16 +575,16 @@ footer {
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
 }
 
 .page-link {
-  color: #fa9c23;
+  color: #2a292b;
 }
 
 .page-link:hover {
-  color: #fa9c23;
+  color: #2a292b;
 }
 
 /* Admin Sidebar */
@@ -708,7 +721,7 @@ ul.CTAs a {
 }
 
 .orange {
-  color: #fa9c23;
+  color: #2a292b;
 }
 
 .yellow {
@@ -851,4 +864,11 @@ ul.CTAs a {
 
 #no_of_reviews{
   font-size: 0.7rem;
+}
+
+.product{
+  border: 1px solid grey;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 0;
 }

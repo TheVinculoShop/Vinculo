@@ -8,7 +8,7 @@ export default function Product({ product }) {
 
     return (
         <div className="col-6 col-md-4 col-lg-3 my-3"> {/* Adjusted Bootstrap classes */}
-            <div className="card p-3 rounded">
+            <div className="card p-3 rounded product">
                 {product.images.length > 0 ? (
                     <img
                         className="card-img-top mx-auto"

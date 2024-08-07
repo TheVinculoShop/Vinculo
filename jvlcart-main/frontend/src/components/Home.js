@@ -38,7 +38,7 @@ export default function Home() {
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images/caro3.jpg"
+                                src="images/caro1.jpg"
                                 alt="First slide"
                             />
                         </Carousel.Item>
@@ -101,14 +101,14 @@ export default function Home() {
 
                     <h1 id="products_heading">Latest Products</h1>
                     <section id="products" className="container mt-5">
-                        <div className="row">
+                        <div className="row ">
                             {products && products.map(product => (
                                 <Product col={3} key={product._id} product={product} />
                             ))}
                         </div>
                     </section>
                     {productsCount > 0 && productsCount > resPerPage ?
-                        <div className="d-flex justify-content-center mt-5">
+                        <div className="d-flex justify-content-center mt-5 ">
                             <Pagination
                                 activePage={currentPage}
                                 onChange={setCurrentPageNo}
