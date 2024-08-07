@@ -7,15 +7,16 @@ import Product from "./product/Product";
 import { toast } from 'react-toastify';
 import Pagination from 'react-js-pagination';
 import Carousel from 'react-bootstrap/Carousel';
+import Header from './layouts/Header'; // Assuming you have a Header component
+import { Link, useNavigate } from "react-router-dom";
+
 export default function Home() {
     const dispatch = useDispatch();
     const { products, loading, error, productsCount, resPerPage } = useSelector((state) => state.productsState)
     const [currentPage, setCurrentPage] = useState(1);
 
     const setCurrentPageNo = (pageNo) => {
-
         setCurrentPage(pageNo)
-
     }
 
     useEffect(() => {
@@ -27,9 +28,9 @@ export default function Home() {
         dispatch(getProducts(null, null, null, null, currentPage))
     }, [error, dispatch, currentPage])
 
-
     return (
         <Fragment>
+
             {loading ? <Loader /> :
                 <Fragment>
                     <MetaData title={'Buy Best Products'} />
@@ -37,32 +38,73 @@ export default function Home() {
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images\caro1.jpg"
+                                src="images/caro3.jpg"
                                 alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images\caro2.jpg"
+                                src="images/caro2.jpg"
                                 alt="Second slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="images\caro3.jpg"
+                                src="images/caro3.jpg"
                                 alt="Third slide"
                             />
                         </Carousel.Item>
                     </Carousel>
+                    <center>
+                        <div className="container mt-5">
+                            <div className="row">
+                                <div className="col-12 mb-5">
+                                    <h1 id="products_heading">Categories</h1>
+
+                                    <div className="image-container">
+                                        <img
+                                            src="/images/girl.jpg"
+                                            alt="Girls Category"
+                                        />
+                                        <Link to="/girls">
+                                            <div className="label" >Girls</div>
+                                        </Link>
+                                    </div>
+
+                                    <div className="image-container">
+                                        <img
+                                            src="/images/boys.jpg"
+                                            alt="Boys Category"
+                                        />
+                                        <Link to="/boys">
+                                            <div className="label">Boys</div>
+                                        </Link>
+                                    </div>
+
+                                    <div className="image-container">
+                                        <img
+                                            src="/images/infant.jpg"
+                                            alt="Infants Category"
+                                        />
+                                        <Link to="/infant">
+                                        <div className="label">Infant</div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+
+
+
                     <h1 id="products_heading">Latest Products</h1>
                     <section id="products" className="container mt-5">
                         <div className="row">
                             {products && products.map(product => (
                                 <Product col={3} key={product._id} product={product} />
                             ))}
-
                         </div>
                     </section>
                     {productsCount > 0 && productsCount > resPerPage ?
