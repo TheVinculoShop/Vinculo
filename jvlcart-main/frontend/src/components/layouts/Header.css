@@ -13,8 +13,8 @@
     .mobile-navbar{
         display: flex;
         justify-content: space-evenly;
-        width: 90%;
-        margin: 0 5%;
+        width: 100%;
+        margin:  0%;
     }
 
     .logo{

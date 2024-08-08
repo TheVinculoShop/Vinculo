@@ -352,12 +352,12 @@ export default function ProductDetail() {
 
                                     <hr />
 
-                                    <p id="product_price">${product.price}</p>
+                                    <p id="product_price"> ₹{product.price}</p>
 
                                     <div className="stockCounter d-inline">
-                                        <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
+                                        <span className="btn btn-danger minus min-but" onClick={decreaseQty}>-</span>
                                         <input type="number" className="form-control count d-inline" value={quantity} readOnly />
-                                        <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
+                                        <span className="btn btn-primary plus add-but" onClick={increaseQty}>+</span>
                                     </div>
                                     <button
                                         type="button"
@@ -375,7 +375,7 @@ export default function ProductDetail() {
                                                 position: toast.POSITION.BOTTOM_CENTER,
                                             });
                                         }}
-                                        className="btn btn-primary d-inline ml-4"
+                                        className="btn btn-primary d-inline ml-4 atc-but "
                                     >
                                         Add to Cart
                                     </button>

@@ -90,26 +90,26 @@ export default function Profile() {
 
                 <div className="col-12 col-md-5">
                     <div style={styles.card}>
-                        <h4 style={styles.header}>Full Name</h4>
+                        <h5 style={styles.header}>Full Name</h5>
                         <p style={styles.paragraph}>{user.name}</p>
 
-                        <h4 style={styles.header}>Email Address</h4>
+                        <h5 style={styles.header}>Email Address</h5>
                         <p style={styles.paragraph}>{user.email}</p>
 
-                        <h4 style={styles.header}>Phone Number</h4>
+                        <h5 style={styles.header}>Phone Number</h5>
                         <p style={styles.paragraph}><FaPhone style={styles.icon} /> {user.phone}</p>
 
-                        <h4 style={styles.header}>Address</h4>
+                        <h5 style={styles.header}>Address</h5>
                         <p style={styles.paragraph}><FaAddressCard style={styles.icon} /> {user.address}</p>
 
-                        <h4 style={styles.header}>Joined</h4>
+                        <h5 style={styles.header}>Joined</h5>
                         <p style={styles.paragraph}>{String(user.createdAt).substring(0, 10)}</p>
 
-                        <Link to="/orders" style={{ ...styles.button, ...styles.btnDanger }} className="btn-block mt-5">
+                        <Link to="/orders" style={{ ...styles.button, ...styles.btnDanger }} className=" btn-block mt-5">
                             <FaShoppingCart style={styles.icon} /> My Orders
                         </Link>
 
-                        <Link to="/myprofile/update/password" style={{ ...styles.button, ...styles.btnPrimary }} className="btn-block mt-3">
+                        <Link to="/myprofile/update/password" style={{ ...styles.button, ...styles.btnPrimary }} className=" btn-block mt-2">
                             <FaKey style={styles.icon} /> Change Password
                         </Link>
                         

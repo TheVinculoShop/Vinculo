@@ -27,7 +27,7 @@ export default function Header() {
               <img
                 width="150px"
                 height="50px"
-                alt="JVLcart Logo"
+                alt="vinculo"
                 src="/images/Group22.svg"
                 className="logo"
               />
@@ -121,7 +121,7 @@ export default function Header() {
               <img
                 width="150px"
                 height="50px"
-                alt="JVLcart Logo"
+                alt="vinculo"
                 src="/images/Group6.svg"
                 className="logo"
               />
