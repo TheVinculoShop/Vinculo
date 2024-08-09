@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
 }
 
+.App{
+  width: 100%;
+}
+
 /* Scroll Bar */
 
 ::-webkit-scrollbar-track {
@@ -33,13 +37,33 @@ nav {
   padding: 1rem 1rem;
 }
 
-#search_btn {
-  background-color: #febd69;
+.navigation-links a,
+.categories {
+  color: #2a292b;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow */
+  
 }
 
+.navigation-links a:hover {
+  text-decoration: none;
+}
+
+
+#search_btn {
+  background-color: white;
+  border: 1px solid grey;
+}
+.mobile-navbar{
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);  
+  
+
+}
 .input-group {
-  width: 90%;
+  width: 70%;
   margin-right: 10%;
+  margin-bottom: 3%;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 #search_field {
@@ -47,22 +71,28 @@ nav {
   padding: 1rem;
 }
 
+.username {
+  color: #2a292b
+}
+
 #login_btn,
 #view_btn {
-  background-color: #febd69;
+  background-color: white;
   font-family: calibri;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  margin-left: 5px;
 }
 
 #cart {
   font-size: 1rem;
-  color: white;
+  color: #2a292b;
 }
 
 #cart_count {
-  background-color: #febd69;
+  background-color: #2a292b;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: black;
+  color: white;
   font-weight: bold;
   font-size: 0.9rem;
 }
@@ -89,7 +119,7 @@ nav {
 }
 
 .card-title a:hover {
-  color: #fa9c23;
+  color: #2a292b;
   text-decoration: none;
 }
 
@@ -102,7 +132,7 @@ nav {
 }
 
 #view_btn {
-  background-color: #fa9c23;
+  background-color: #2a292b;
   color: white;
 }
 
@@ -112,14 +142,14 @@ nav {
 }
 
 .ratings {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #fdcc0d;
 }
 
 #no_of_reviews {
   font-size: 0.85rem;
   color: grey;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
 }
 
 .image-container {
@@ -252,7 +282,7 @@ footer {
 #cart_btn,
 #review_btn {
   border-radius: 2rem;
-  background-color: #fa9c23;
+  background-color: #2a292b;
   border: none;
   padding: 0.5rem 2rem;
 }
@@ -299,8 +329,8 @@ footer {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fa9c23;
-  border-color: #fa9c23 transparent;
+  border: 6px solid #2a292b;
+  border-color: #2a292b transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
@@ -341,15 +371,15 @@ footer {
 
 #checkout_btn,
 .review-btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
   margin-top: 2rem;
   border-radius: 5rem;
 }
 
 #view_order_details {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
 }
 
 #order_summary {
@@ -401,8 +431,8 @@ footer {
 }
 
 .wrapper form .btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
   color: white;
   margin-top: 2.5rem;
 }
@@ -481,7 +511,7 @@ footer {
 }
 
 .active-step {
-  background: #fa9c23;
+  background: #2a292b;
   color: #fff;
 }
 
@@ -489,7 +519,7 @@ footer {
   float: left;
   width: 0;
   border-top: 20px solid transparent;
-  border-left: 15px solid #fa9c23;
+  border-left: 15px solid #2a292b;
   border-bottom: 20px solid transparent;
   margin-left: -1px;
 }
@@ -497,9 +527,9 @@ footer {
 .triangle2-active {
   width: 0;
   float: left;
-  border-top: 20px solid #fa9c23;
+  border-top: 20px solid #2a292b;
   border-left: 15px solid #fff;
-  border-bottom: 20px solid #fa9c23;
+  border-bottom: 20px solid #2a292b;
   margin-right: -1px;
 }
 
@@ -539,8 +569,8 @@ footer {
 }
 
 #edit_profile {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
 }
 
 /* Confirm Order */
@@ -551,8 +581,8 @@ footer {
 }
 
 .update-btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
   color: white;
 }
 
@@ -562,16 +592,16 @@ footer {
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #2a292b;
+  border-color: #2a292b;
 }
 
 .page-link {
-  color: #fa9c23;
+  color: #2a292b;
 }
 
 .page-link:hover {
-  color: #fa9c23;
+  color: #2a292b;
 }
 
 /* Admin Sidebar */
@@ -708,7 +738,7 @@ ul.CTAs a {
 }
 
 .orange {
-  color: #fa9c23;
+  color: #2a292b;
 }
 
 .yellow {
@@ -716,7 +746,7 @@ ul.CTAs a {
 }
 
 .review_user {
-  font-size: 0.8rem;
+  font-size: 0.4rem;
   color: grey;
 }
 
@@ -773,19 +803,6 @@ ul.CTAs a {
   opacity: 1;
 }
 
-.choice{
-  text-align: center;
-  margin: 10px 0;
-}
-
-.otpInput{
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  text-align: center;
-  font-size: 1.2em;
-}
-
 @media (max-width: 600px) {
   .image-container-wrapper {
     flex-direction: row;
@@ -832,42 +849,144 @@ ul.CTAs a {
 
   .card {
     padding: 1rem;
+    width: 120%;
   }
 
   .card-img-top {
     height: 120px;
-    /* Further reduced image height */
     width: 100%;
-    /* Ensure image takes full width of the card */
     object-fit: cover;
-    /* Keeps aspect ratio and covers the container */
   }
 
   .card-title {
     font-size: 0.875rem;
-    /* Further reduced title font size */
   }
 
   .card-text {
     font-size: 0.75rem;
-    /* Further reduced price font size */
   }
 
   .ratings {
     font-size: 0.75rem;
-    /* Reduced ratings font size */
   }
 
   .btn {
     padding: 0.25rem 0.5rem;
-    /* Reduced button padding */
     font-size: 0.75rem;
-    /* Further reduced button font size */
     display: block;
-    /* Ensure button is displayed as a block element */
     width: 100%;
-    /* Make button take full width on small devices */
     text-align: center;
-    /* Center text inside the button */
   }
+}
+
+#no_of_reviews {
+  font-size: 0.7rem;
+}
+
+.product {
+  border: 1px solid grey;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.caro-image {
+  height: 385.7px;
+}
+
+.navbar {
+  height: 70 px;
+  margin-top: 0;
+  padding-top: 0%;
+
+}
+.navbar row{
+
+padding: 0px;
+margin: 0px;
+
+}
+@media (max-width: 768px) { /* You can adjust the max-width value as needed */
+  .caro-image {
+    height: 185px; /* Set the desired height for mobile view */
+  }
+}
+.add-but,.min-but{
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Same as width to make it square */
+  background-color:#2a292b
+  ; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Slightly rounded corners, adjust as needed */
+  text-align: center; /* Center text */
+  line-height: 40px; /* Same as height to vertically center text */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: inline-block; /* Inline-block to respect width and height */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+
+}
+
+.atc-but{
+
+  width: 150px; /* Adjust the size as needed */
+  height: 50px; /* Same as width to make it square */
+  background-color:#2a292b
+  ; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Slightly rounded corners, adjust as needed */
+  text-align: center; /* Center text */
+   /* Same as height to vertically center text */
+  font-size: 10px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: inline-block; /* Inline-block to respect width and height */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+
+}
+
+.price{
+  padding-right: 0;
+}
+
+.cart-count{
+  padding: 0;
+}
+
+.count{
+  text-align: center;
+  padding: 6px;
+}
+
+.customsize{
+  width: 40px; /* Set the width */
+  height: 40px; /* Set the height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 4px;
+  font-size: 20px; /* Adjust font size as needed */
+  padding: 0;
+  
+}
+
+.customsize1{
+  width: 50px; /* Set the width */
+  height: 40px; /* Set the height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px; /* Adjust font size as needed */
+}
+
+.minus{
+  padding: 5px;
+}
+
+.navbar{
+  padding: 0;
+  width: 100%;
 }

@@ -9,9 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProductDetail from './components/product/ProductDetail';
 import ProductSearch from './components/product/ProductSearch';
 import Login from './components/user/Login';
-
-import LoginMobile from './components/user/LoginMobile'
-
 import Register from './components/user/Register';
 import { useEffect, useState } from 'react';
 import store from './store';
@@ -72,9 +69,6 @@ function App() {
               <Route path='/search/:keyword' element={<ProductSearch />} />
               <Route path='/product/:id' element={<ProductDetail />} />
               <Route path='/login' element={<Login />} />
-
-              <Route path='/loginmobile' element = {<LoginMobile />} />
-
               <Route path='/register' element={<Register />} />
               <Route path='/myprofile' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
               <Route path='/myprofile/update' element={<ProtectedRoute><UpdateProfile /></ProtectedRoute>} />

@@ -8,7 +8,7 @@ export default function Product({ product }) {
 
     return (
         <div className="col-6 col-md-4 col-lg-3 my-3"> {/* Adjusted Bootstrap classes */}
-            <div className="card p-3 rounded">
+            <div className="card p-3 rounded product">
                 {product.images.length > 0 ? (
                     <img
                         className="card-img-top mx-auto"
@@ -30,9 +30,10 @@ export default function Product({ product }) {
                         <div className="rating-outer">
                             <div className="rating-inner" style={{ width: `${calculateRatingsWidth(product.ratings)}%` }}></div>
                         </div>
-                        <span id="no_of_reviews">({product.numOfReviews} Reviews)</span>
+                        <br />
+                        <div ><span id="no_of_reviews">({product.numOfReviews} Reviews)</span></div>
                     </div>
-                    <p className="card-text">${product.price}</p>
+                    <p className="card-text"> ₹{product.price}</p>
                     <Link to={`/product/${product._id}`} id="view_btn" className="btn btn-block">View Details</Link>
                 </div>
             </div>

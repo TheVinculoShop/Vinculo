@@ -74,12 +74,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
                         LOGIN
                         </button>
 
-                        <p className='choice'>OR</p>
-
-                        <Link to='/loginmobile' >
-                            <button>Login using Mobile</button>
-                        </Link>
-
                         <Link to="/register" className="float-right mt-3">New User?</Link>
                     </form>
                 </div>
