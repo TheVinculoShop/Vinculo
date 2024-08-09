@@ -120,7 +120,7 @@ const Footer = () => {
         <ul className="navigation">
           <li>
             <Link to="/">
-              <FaHome style={{ color: "white" }} /> <div>Home</div>
+              <FaHome style={{ color: "#2a292b" }} /> <div></div>
             </Link>
           </li>
 
@@ -128,19 +128,19 @@ const Footer = () => {
 
           <li>
             <Link to="/orders">
-              <FaShoppingCart style={{ color: "white" }} /> Orders
+              <FaShoppingCart style={{ color: "#2a292b" }} /> 
             </Link>
           </li>
 
           <li>
             <Link to="/cart">
-              <FaShoppingBasket style={{ color: "white" }} /> My Cart
+              <FaShoppingBasket style={{ color: "#2a292b" }} /> 
             </Link>
           </li>
 
           <li>
             <Link to="/myprofile">
-              <FaUser style={{ color: "white" }} /> Profile
+              <FaUser style={{ color: "#2a292b" }} /> 
             </Link>
           </li>
         </ul>

@@ -30,7 +30,7 @@ export default function GirlsProducts() {
             {loading ? <Loader /> :
                 <Fragment>
                     <MetaData title={'Boys Products'} />
-                    <h1 id="products_heading">Boys Products</h1>
+                    <h1 id="products_heading" className="categories">Boys Products</h1>
                     <section id="products" className="container mt-5">
                         <div className="row">
                             {products && products.map(product => (

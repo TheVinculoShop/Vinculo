@@ -50,7 +50,7 @@ export default function Register() {
             justifyContent: 'center', 
             alignItems: 'center', 
             height: '100vh', 
-            backgroundColor: '#ffffff', 
+            // backgroundColor: '#ffffff', 
             fontFamily: 'Arial, sans-serif', 
             position: 'relative',
             overflow: 'hidden', // Prevent scrolling
@@ -175,10 +175,10 @@ export default function Register() {
                     <button
                         id="register_button"
                         type="submit"
-                        className="btn btn-block py-3 btn-register"
+                        className="btn btn-block py-3 btn-register "
                         disabled={loading} 
                         style={{
-                            backgroundColor: '#102C57',
+                            backgroundColor: '#2a292b',
                             borderColor: '#102C57',
                             fontFamily: 'Arial, sans-serif',
                             fontSize: '0.875rem',
