@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, clearAuthError } from '../../actions/userActions';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 
 export default function Register() {
+    const location = useLocation();
     const [userData, setUserData] = useState({
-        name: "",
-        email: "",
+        name: location.state?.name || "",
+        email: location.state?.email || "",
         password: ""
     });
 
@@ -111,7 +112,9 @@ export default function Register() {
                             type="text" 
                             id="name_field" 
                             className="form-control input-field" 
-                            placeholder="Enter your name"   style={{ 
+                            placeholder="Enter your name"   
+                            value={userData.name}
+                            style={{ 
                                 borderColor: '#102C57', 
                                 borderRadius: '0.5rem', 
                                 fontFamily: 'Arial, sans-serif', 
@@ -132,7 +135,9 @@ export default function Register() {
                             name='email'
                             onChange={onChange}
                             className="form-control input-field"
-                            placeholder="Enter your email" style={{ 
+                            placeholder="Enter your email" 
+                            value={userData.email}
+                            style={{ 
                                 borderColor: '#102C57', 
                                 borderRadius: '0.5rem', 
                                 fontFamily: 'Arial, sans-serif', 
