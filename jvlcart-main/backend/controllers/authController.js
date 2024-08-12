@@ -7,29 +7,27 @@ const crypto = require('crypto')
 
 //Register User - /api/v1/register
 exports.registerUser = catchAsyncError(async (req, res, next) => {
-    const {name, email, password } = req.body
+    const { name, email, password } = req.body;
 
     let avatar;
-    
     let BASE_URL = process.env.BACKEND_URL;
-    if(process.env.NODE_ENV === "production"){
-        BASE_URL = `${req.protocol}://${req.get('host')}`
+    if (process.env.NODE_ENV === "production") {
+        BASE_URL = `${req.protocol}://${req.get('host')}`;
     }
 
-    if(req.file){
-        avatar = `${BASE_URL}/uploads/user/${req.file.originalname}`
+    if (req.file) {
+        avatar = `${BASE_URL}/uploads/user/${req.file.originalname}`;
     }
 
     const user = await User.create({
         name,
         email,
         password,
-        avatar
+        avatar,
     });
 
-    sendToken(user, 201, res)
-
-})
+    sendToken(user, 201, res);
+});
 
 //Login User - /api/v1/login
 exports.loginUser = catchAsyncError(async (req, res, next) => {
@@ -164,35 +162,37 @@ exports.changePassword  = catchAsyncError(async (req, res, next) => {
     })
  })
 
-//Update Profile - /api/v1/update
+
+// Update Profile - /api/v1/update
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
     let newUserData = {
         name: req.body.name,
-        email: req.body.email
-    }
+        email: req.body.email,
+        phone: req.body.phone,
+        address: req.body.address
+    };
 
     let avatar;
     let BASE_URL = process.env.BACKEND_URL;
-    if(process.env.NODE_ENV === "production"){
-        BASE_URL = `${req.protocol}://${req.get('host')}`
+    if (process.env.NODE_ENV === "production") {
+        BASE_URL = `${req.protocol}://${req.get('host')}`;
     }
 
-    if(req.file){
-        avatar = `${BASE_URL}/uploads/user/${req.file.originalname}`
-        newUserData = {...newUserData,avatar }
+    if (req.file) {
+        avatar = `${BASE_URL}/uploads/user/${req.file.originalname}`;
+        newUserData = { ...newUserData, avatar };
     }
 
     const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new: true,
         runValidators: true,
-    })
+    });
 
     res.status(200).json({
         success: true,
         user
-    })
-
-})
+    });
+});
 
 //Admin: Get All Users - /api/v1/admin/users
 exports.getAllUsers = catchAsyncError(async (req, res, next) => {
